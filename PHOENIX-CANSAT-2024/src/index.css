@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply font-body bg-space-darker text-white overflow-x-hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-display;
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.7), 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+.glow-border {
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.5), 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.glow-bg {
+  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.2) 0%, rgba(76, 29, 149, 0.1) 50%, rgba(5, 7, 24, 0) 100%);
+}
+
+.nav-link {
+  @apply relative px-2 py-1 font-medium text-gray-300 transition-colors duration-300 hover:text-white;
+}
+
+.nav-link::after {
+  @apply content-[''] absolute bottom-0 left-0 w-0 h-[2px] bg-space-glow transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.nav-link.active {
+  @apply text-white font-semibold;
+}
+
+.nav-link.active::after {
+  @apply w-full;
+}
+
+.active-page-indicator {
+  @apply bg-space-glow absolute bottom-0 h-0.5 transition-all duration-300;
+}
+
+.space-star {
+  @apply absolute bg-white rounded-full blur-[1px];
+  animation: twinkle linear infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
